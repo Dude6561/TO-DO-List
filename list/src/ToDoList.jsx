@@ -36,32 +36,35 @@ export default function ToDoList() {
   }
   return (
     <div className="to-do-list">
-      <h1>To-Do-List</h1>
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          placeholder="Enter a Task...."
-          onChange={handleInputChange}
-        />
-        <button className="add-button" onClick={addTask}>
-          Add Task
-        </button>
-        <ol>
-          {tasks.map((task, index) => (
-            <li key={index}>
-              <span className="text">
-                {task} <button onClick={() => deleteTask(index)}>Delete</button>
-                <button onClick={() => moveTaskUp(index)} className="up">
-                  Up
-                </button>
-                <button onClick={() => moveTaskDown(index)} className="down">
-                  Down
-                </button>
-              </span>
-            </li>
-          ))}
-        </ol>
+      <div className="box">
+        <div className="center">
+          <h1>To-Do-List</h1>
+          <input
+            type="text"
+            value={newTask}
+            placeholder="Enter a Task...."
+            onChange={handleInputChange}
+          />
+          <button className="add-button" onClick={addTask}>
+            +
+          </button>
+          <ol>
+            {tasks.map((task, index) => (
+              <li key={index}>
+                <span className="text">
+                  {task}{" "}
+                  <button onClick={() => deleteTask(index)}>Delete</button>
+                  <button onClick={() => moveTaskUp(index)} className="up">
+                    Up
+                  </button>
+                  <button onClick={() => moveTaskDown(index)} className="down">
+                    Down
+                  </button>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </div>
   );
